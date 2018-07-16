@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+html {
+  font-size: 62.5%;
+  width: 100%; }
+
+body {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-family: 'Titillium Web', sans-serif;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 1.7;
+  letter-spacing: 1px;
+  background-color: #fff;
+  text-rendering: optimizeLegibility; }
+
+.parallax-header {
+  /* The image used 1250 x 800 */
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url(../../images/chessecake-1250x800.jpg);
+  /* Set a specific height */
+  min-height: 80rem; }
+
+.parallax-header2 {
+  /* The image used 1250 x 800 */
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url(../../images/cheesecake2-1250x800.jpg);
+  /* Set a specific height */
+  min-height: 80rem; }
+
+.parallax {
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: whitesmoke; }
+
+/*# sourceMappingURL=index.css.map */
