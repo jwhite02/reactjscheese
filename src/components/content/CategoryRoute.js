@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Switch, Route, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router';
@@ -8,6 +8,7 @@ import ArticleList from './ArticleList';
 class CategoryRoute extends Component {
     render() {
         const category = this.props.match.params.category;
+        const match = this.props.match;
         console.log(category);
         console.log('i am in the cat route js')
         console.log(this.props.match);
@@ -26,13 +27,29 @@ class CategoryRoute extends Component {
                         <h1>{item.Title}</h1>
                         <p>{item.Content} </p>
                         <div>
-                            <Link to={`/category/${item.category}/${item.URITag}`}>{item.Title}</Link>
-                            <Route path={`/category/item.category/:uritag`} component={ArticleList} />
+                            {/* <Link to={`/${item.URITag}`}>{item.Title}</Link> */}
+                            {/* <Link to={`/category/${item.category}/${item.URITag}`}>{item.Title}</Link> */}
+                            <ul className="list-unstyled">
+                                <li key={item.URITag}><Link to={`${match.url}/${item.URITag}`}>{item.Title}</Link></li>
+                            </ul>
+                            
+                            {/* works, but component's screen is blank */}
+                            {/* <Route path={`/${item.category}/:uritag`} component={ArticleList} /> */}
+                            {/* this works, but renders ArticleList for each recipe */}
+                            {/* <Route strict path={`/:uritag`} component={ArticleList} /> */}
+                            {/* <Switch>
+                                <Route path={`/category/:category/:uritag`} render={(props) => (<div><ArticleList /></div>)} />
+                            </Switch> */}
+                            <Route path={`/category/:category/:uritag`} render={(props) => (<div><ArticleList location={this.props.location} /></div>)} />
+                            {/* <Route strict path={`/category/:category/:uritag`} component={ArticleList} /> */}
+                            {/* <Route strict path={`/category/${item.category}/:uritag`} component={ArticleList} /> */}
+                            {/* those below do not work */}
+                            {/* <Route path="/category/category/:uritag" component={ArticleList} /> */}
+                            {/* <Route path="/category/{item.category}/:uritag" component={ArticleList} /> */}
                             {/* <Route path="/category/{item.category}/{item.URITag}" component={ArticleList} /> */}
                             {/* <Route path={`/category/item.category/:uritag`} component={ArticleList} /> */}
                             {/* <Route path="/category/{`${item.category}`}/:uritag" component={ArticleList} /> */}
-                        </div>
-                        
+                        </div>    
                   </div>
                 );
             }

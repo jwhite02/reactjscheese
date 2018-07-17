@@ -19,7 +19,7 @@ class ArticleList extends Component {
 
     render() {
         const mycheesecake = this.props.cheesecake;
-        console.log(this.props.match.params);
+        console.log(this.props.match);
        // console.log(mycheesecake);
         //console.log(theCats.cheeseCats);
         const mystraw = mycheesecake.filter(item => {
@@ -28,7 +28,7 @@ class ArticleList extends Component {
             }
         });
 
-        console.log(mystraw);
+        //console.log(mystraw);
 
         return (
             <div className="bg-success">

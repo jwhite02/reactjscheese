@@ -5,7 +5,7 @@ import '../src/styles/css/App.css';
 //import CardSection from '../src/components/content/CardSection';
 //import FooterSection from '../src/components/footer/FooterSection';
 import {BrowserRouter as Router} from 'react-router-dom';
-
+//import { Switch } from 'react-router-dom';
 //import { BrowserRouter as Router, Route, Link} from 'react-router-dom';
 //import SiteHolder from './components/content/SiteHolder';
 import SiteBugerMenu from './components/SiteBugerMenu';
