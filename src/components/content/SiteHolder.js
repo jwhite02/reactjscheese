@@ -86,6 +86,7 @@ class SiteHolder extends Component {
                                             />
                                         ))}
                                     <Route path="/category/:category" component={CategoryRoute} />
+                                    {/* <Route path={`/category/:category/:uritag`} render={(props) => (<div><ArticleList location={this.props.location} /></div>)} />  */}
                                 </div>                             
                         </div>
                     </div>

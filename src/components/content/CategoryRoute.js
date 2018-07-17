@@ -18,6 +18,7 @@ class CategoryRoute extends Component {
         let str3 = category.slice(0, -17);  // returns 'XXXXXXXXX'
         let strSpace = "  ";
         let str4 = str3.concat(strSpace, str2, strSpace, str);
+        let myRoute;
 
         const catArticles = this.props.cheesecake.map((item) => {
             if (item.category === category){
@@ -27,23 +28,10 @@ class CategoryRoute extends Component {
                         <h1>{item.Title}</h1>
                         <p>{item.Content} </p>
                         <div>
-                            {/* <Link to={`/${item.URITag}`}>{item.Title}</Link> */}
-                            {/* <Link to={`/category/${item.category}/${item.URITag}`}>{item.Title}</Link> */}
                             <ul className="list-unstyled">
-                                <li key={item.URITag}><Link to={`${match.url}/${item.URITag}`}>{item.Title}</Link></li>
+                                <li key={item.URITag}><Link to={`category/${item.URITag}`}>{item.Title}</Link></li>
                             </ul>
-                            
-                            {/* works, but component's screen is blank */}
-                            {/* <Route path={`/${item.category}/:uritag`} component={ArticleList} /> */}
-                            {/* this works, but renders ArticleList for each recipe */}
-                            {/* <Route strict path={`/:uritag`} component={ArticleList} /> */}
-                            {/* <Switch>
-                                <Route path={`/category/:category/:uritag`} render={(props) => (<div><ArticleList /></div>)} />
-                            </Switch> */}
-                            <Route path={`/category/:category/:uritag`} render={(props) => (<div><ArticleList location={this.props.location} /></div>)} />
-                            {/* <Route strict path={`/category/:category/:uritag`} component={ArticleList} /> */}
-                            {/* <Route strict path={`/category/${item.category}/:uritag`} component={ArticleList} /> */}
-                            
+                            {/* <Route path={`/category/:category/:uritag`} render={(props) => (<div><ArticleList location={this.props.location} /></div>)} />   */}
                         </div>    
                   </div>
                 );
@@ -57,6 +45,7 @@ class CategoryRoute extends Component {
                     <li><Link to='/'>Home</Link></li>
                 </ul>
                 {catArticles}
+                <Route path={`/category/:category/:uritag`} render={(props) => (<div><ArticleList location={this.props.location} /></div>)} /> 
             </div>
         );
     }
