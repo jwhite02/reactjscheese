@@ -43,12 +43,7 @@ class CategoryRoute extends Component {
                             <Route path={`/category/:category/:uritag`} render={(props) => (<div><ArticleList location={this.props.location} /></div>)} />
                             {/* <Route strict path={`/category/:category/:uritag`} component={ArticleList} /> */}
                             {/* <Route strict path={`/category/${item.category}/:uritag`} component={ArticleList} /> */}
-                            {/* those below do not work */}
-                            {/* <Route path="/category/category/:uritag" component={ArticleList} /> */}
-                            {/* <Route path="/category/{item.category}/:uritag" component={ArticleList} /> */}
-                            {/* <Route path="/category/{item.category}/{item.URITag}" component={ArticleList} /> */}
-                            {/* <Route path={`/category/item.category/:uritag`} component={ArticleList} /> */}
-                            {/* <Route path="/category/{`${item.category}`}/:uritag" component={ArticleList} /> */}
+                            
                         </div>    
                   </div>
                 );
