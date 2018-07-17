@@ -29,7 +29,7 @@ class CategoryRoute extends Component {
                         <p>{item.Content} </p>
                         <div>
                             <ul className="list-unstyled">
-                                <li key={item.URITag}><Link to={`category/${item.URITag}`}>{item.Title}</Link></li>
+                                <li key={item.URITag}><Link to={`recipe/${item.category}/${item.URITag}`}>{item.Title}</Link></li>
                             </ul>
                             {/* <Route path={`/category/:category/:uritag`} render={(props) => (<div><ArticleList location={this.props.location} /></div>)} />   */}
                         </div>    
