@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router';
 import ArticleList from './ArticleList';
+import ArticleContainer from './ArticleContainer'
 
 class CategoryRoute extends Component {
     render() {
@@ -31,7 +32,6 @@ class CategoryRoute extends Component {
                             <ul className="list-unstyled">
                                 <li key={item.URITag}><Link to={`recipe/${item.category}/${item.URITag}`}>{item.Title}</Link></li>
                             </ul>
-                            {/* <Route path={`/category/:category/:uritag`} render={(props) => (<div><ArticleList location={this.props.location} /></div>)} />   */}
                         </div>    
                   </div>
                 );
@@ -45,7 +45,7 @@ class CategoryRoute extends Component {
                     <li><Link to='/'>Home</Link></li>
                 </ul>
                 {catArticles}
-                <Route path={`/category/:category/:uritag`} render={(props) => (<div><ArticleList location={this.props.location} /></div>)} /> 
+                <Route path={`/category/:category/:aCat/:uritag`} render={(props) => (<div><ArticleContainer  location={this.props.location} /></div>)} /> 
             </div>
         );
     }
