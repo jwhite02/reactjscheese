@@ -12,6 +12,7 @@ import HeaderSection from '../header/HeaderSection';
 import FooterSection from '../footer/FooterSection';
 import ArticleList from './ArticleList';
 import CategoryRoute from './CategoryRoute';
+import ArticleContainer from './ArticleContainer';
 //import { cheeseCats } from '../../data/cheesecategories';
 
 
@@ -68,29 +69,32 @@ class SiteHolder extends Component {
         console.log(newLinks);
 
         return (
-                    <div>
-                        <div id="outer-container">
-                            <Menu isOpen={false} pageWrapId={"page-wrap"} outerContainerId={"outer-container"} >
-                                        <ul className="list-unstyled" >
-                                            <li><Link to='/'>Home</Link></li>
-                                            <li><Link to='/article'>Article</Link></li>
-                                            {newLinks}
-                                        </ul>
-                            </Menu> 
-                                <div id="page-wrap">
-                                    {routes.map((route) => (
-                                            <Route
-                                                key={route.path}
-                                                path={route.path}
-                                                exact={route.exact}
-                                                render={route.sidebar}
-                                            />
-                                        ))}
-                                    <Route path="/category/:category" render={(...props) => {return <CategoryRoute />}}/>
-                                    {/* <Route path={`/category/:category/:uritag`} render={(props) => (<div><ArticleList location={this.props.location} /></div>)} />  */}
-                                </div>                             
-                        </div>
+                <div>
+                    <div id="outer-container">
+                        <Menu isOpen={false} pageWrapId={"page-wrap"} outerContainerId={"outer-container"} >
+                                    <ul className="list-unstyled" >
+                                        <li><Link to='/'>Home</Link></li>
+                                        {/* <li><Link to='/article'>Article</Link></li> */}
+                                        {newLinks}
+                                    </ul>
+                        </Menu> 
+                            <div id="page-wrap">
+                                {routes.map((route) => (
+                                        <Route
+                                            key={route.path}
+                                            path={route.path}
+                                            exact={route.exact}
+                                            render={route.sidebar}
+                                        />
+                                    ))}
+                                <Route  path="/category/:category" render={(...props) => {return <CategoryRoute />}}/>
+                                <Route path="/recipe/:uritag" render={(props) => (<div>  <ArticleContainer isHeader={true} location={this.props.location} /> <FooterSection /> </div>)} /> 
+                                
+                                {/* <Route path="/recipe/:uritag" render={(...props) => {return <CategoryRoute />}}/> */}
+                                {/* <Route path={`/category/:category/:uritag`} render={(props) => (<div><ArticleList location={this.props.location} /></div>)} />  */}
+                            </div>                             
                     </div>
+                </div>
         );
     }
 }

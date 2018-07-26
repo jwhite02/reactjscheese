@@ -7,12 +7,15 @@ import ArticleList from './ArticleList';
 import ArticleContainer from './ArticleContainer'
 import FooterSection from '../footer/FooterSection';
 import RecipeHeader from '../header/RecipeHeader';
+import CategoryHeader from '../header/CategoryHeader';
+
 import { Container, Row, Col } from 'reactstrap';
 
 class CategoryRoute extends Component {
     
     render() {
         const category = this.props.match.params.category;
+        //const category = "CandyCheesecakeRecipes";
         const match = this.props.match;
         console.log(category);
         console.log('i am in the cat route js')
@@ -40,7 +43,7 @@ class CategoryRoute extends Component {
                             }}>{item.Content} </p>
                             <div>
                                 <ul className="list-unstyled">
-                                    <li key={item.URITag}><Link to={`recipe/${item.category}/${item.URITag}`}>{item.Title}</Link></li>
+                                    <li key={item.URITag}><Link to={`/recipe/${item.URITag}`}>{item.Title}</Link></li>
                                 </ul>
                             </div>  
                         </Container>  
@@ -55,16 +58,17 @@ class CategoryRoute extends Component {
                    headValue  = <span></span>;
          }
         else {
-            headValue = (<React.Fragment>
+            headValue = (<div className="mt-5">
             <h1 className="text-center"> {str4} </h1> <ul className="list-unstyled text-center" ><li><Link to='/'>Home</Link></li> </ul>
-            </React.Fragment> )
+            </div>)
          }
 
         return (
             <div>
+                <CategoryHeader />
                 {headValue}
                 {catArticles}
-                <Route path={`/category/:category/:aCat/:uritag`} render={(props) => (<div>  <ArticleContainer isHeader={true} location={this.props.location} /> <FooterSection /> </div>)} /> 
+                <Route path={`recipe/:uritag`} render={(props) => (<div>  <ArticleContainer isHeader={true} location={this.props.location} /> <FooterSection /> </div>)} /> 
             </div>
         );
     }

@@ -66,6 +66,13 @@ body {
     min-height: 20rem;
 }
 
+.parallax-categoryHeader {
+    /* The image used 1250 x 800 */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.0)), url(../../images/category.jpg);
+    /* Set a specific height */
+    min-height: 20rem;
+}
+
 .parallax {
     /* Create the parallax scrolling effect */
     background-attachment: fixed;
