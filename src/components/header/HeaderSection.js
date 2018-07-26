@@ -9,25 +9,8 @@ export default class HeaderSection extends Component {
           return (<div className="parallax-header parallax">
               <div className="divHeaderTitle">
                 <h1 className="text-white text-center">
-                  Delectable Scrumptious Delicious Cheesecake Recipes
+                  Delectable Scrumptious Cheesecake Recipes
                 </h1>
-              </div>
-              <div className="mx-auto  w-50">
-                <Jumbotron className="bg-transparent ">
-                  <h1 className="display-3 text-center">
-                    Hello, world!
-                  </h1>
-                  <p className="lead">
-                    This is a simple hero unit, a simple
-                    Jumbotron-style component for calling extra
-                    attention to featured content or information.
-                  </p>
-                  <hr className="my-2" />
-                  <p>
-                    It uses utility classes for typography and spacing
-                    to space content out within the larger container.
-                  </p>
-                </Jumbotron>
               </div>
             </div>)
     }

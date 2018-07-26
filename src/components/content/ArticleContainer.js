@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import HtmlToReactParser from 'html-to-react/lib/parser';
+import { Container, Row, Col } from 'reactstrap';
+import RecipeHeader from '../header/RecipeHeader';
 
 import * as theCats from '../../data/cheesecategories';  // imports all exports
 
@@ -38,7 +40,7 @@ class ArticleContainer extends Component {
         const ingredients = theArticleContent[0].Ingredients;
         console.log(directions);
         const htmlToReactParser = new HtmlToReactParser();
-        const reactElement = htmlToReactParser.parse(directions);
+        const reactDirections = htmlToReactParser.parse(directions);
         const theingred = htmlToReactParser.parse(ingredients);
         
 
@@ -47,15 +49,32 @@ class ArticleContainer extends Component {
         //         return item;
         //     }
         // });
-        return (
-            <div>
-                <h1 className="text-center" >{theArticleContent[0].Title}</h1>
-                <ul>
-                    {theingred}
-                </ul>
-                {reactElement}
+        return <div>
+            <RecipeHeader isRcHeader={this.props.isHeader   } />
+            <div className="pt-5 divBgRepeatArt">
+                <div className="mb-5">
+                    <h1 className="text-center" style={{ fontSize:'3.5rem' }} >
+                        {theArticleContent[0].Title}
+                    </h1>
+                </div>
+                <Container style={{ marginBottom: '3rem' }} >
+                    <Row>
+                        <Col>
+                            <div className="divUl" style={{ backgroundColor: 'white',
+                                fontSize: '2.0rem', background: "rgba(255, 255, 255, 0.01)"
+                                 }}>
+                                <ul className="list-unstyled">{theingred}</ul>
+                            </div>
+                        </Col>
+                        <Col>
+                            <div  className="h2Directions" style={{fontSize:'2.0rem'}} >
+                                {reactDirections}
+                            </div>
+                        </Col>
+                    </Row>
+                </Container>
             </div>
-        );
+          </div>;
     }
 }
 const mapStateToProps = (state, ownProps) => {

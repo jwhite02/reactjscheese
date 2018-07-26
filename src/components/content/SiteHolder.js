@@ -61,6 +61,7 @@ class SiteHolder extends Component {
             let strSpace = "  ";
             let str4 = str3.concat(strSpace, str2, strSpace, str);
             return <li key={str3}><Link to={`/category/${item}`}>{str4}</Link></li>
+            //Route is placed in the return function
         }
         );
 
@@ -85,7 +86,7 @@ class SiteHolder extends Component {
                                                 render={route.sidebar}
                                             />
                                         ))}
-                                    <Route path="/category/:category" component={CategoryRoute} />
+                                    <Route path="/category/:category" render={(...props) => {return <CategoryRoute />}}/>
                                     {/* <Route path={`/category/:category/:uritag`} render={(props) => (<div><ArticleList location={this.props.location} /></div>)} />  */}
                                 </div>                             
                         </div>
