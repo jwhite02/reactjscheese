@@ -21,7 +21,7 @@ const routes =[
     {
         path: '/',
         exact: true,
-        sidebar: () =>  (<div><HeaderSection bigHeader={true} /> <CardSection /> <ArticleList /> <FooterSection /></div>),
+        sidebar: () =>  (<div><HeaderSection bigHeader={true} /> <CardSection /> <FooterSection /></div>),
         main: () => <HeaderSection />
     },
    {
@@ -72,7 +72,7 @@ class SiteHolder extends Component {
                 <div>
                     <div id="outer-container">
                         <Menu isOpen={false} pageWrapId={"page-wrap"} outerContainerId={"outer-container"} >
-                                    <ul className="list-unstyled" >
+                                    <ul className="list-unstyled menuList" >
                                         <li><Link to='/'>Home</Link></li>
                                         {/* <li><Link to='/article'>Article</Link></li> */}
                                         {newLinks}

@@ -312,15 +312,15 @@ class CardSection extends Component {
     });
       //console.log(theArticleContent);
 
-    return <div className="pt-3 pb-3 parallax-cards">
+    return <div className="pt-3 parallax-cards">
         <Bounce right delay={parseInt("100", 10)}>
           <h2 className="text-center">Card Section</h2>
         </Bounce>
         {/* <div className="w-25 mx-auto imageGallery">
           <ImageGallery showThumbnails={this.state.showThumbnails} showFullscreenButton={this.state.showFullscreenButton && this.state.showGalleryFullscreenButton} autoPlay="true" sizes="50vw" items={images} />
         </div> */}
-        <div className="myNewSlider">
-          <Slider autoplay="1200" className="slider-wrapper shadow">
+        <div className="myNewSlider shadow-lg">
+          <Slider autoplay="1200" className="slider-wrapper shadow-lg">
             {content.map((item, index) => (
               <div
                 key={index}
@@ -332,7 +332,7 @@ class CardSection extends Component {
                 <div className="inner">
                   <h1>{item.title}</h1>
                   <p>{item.description}</p>
-                  <button>{item.button}</button>
+                  {/* <button>{item.button}</button> */}
                 </div>
               </div>
             ))}

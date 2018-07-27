@@ -3,10 +3,10 @@ import { Switch, Route, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router';
-import ArticleList from './ArticleList';
-import ArticleContainer from './ArticleContainer'
+//import ArticleList from './ArticleList';
+//import ArticleContainer from './ArticleContainer'
 import FooterSection from '../footer/FooterSection';
-import RecipeHeader from '../header/RecipeHeader';
+//import RecipeHeader from '../header/RecipeHeader';
 import CategoryHeader from '../header/CategoryHeader';
 
 import { Container, Row, Col } from 'reactstrap';
@@ -43,7 +43,7 @@ class CategoryRoute extends Component {
                             }}>{item.Content} </p>
                             <div>
                                 <ul className="list-unstyled">
-                                    <li key={item.URITag}><Link to={`/recipe/${item.URITag}`}>{item.Title}</Link></li>
+                                    <li style={{fontSize:'1.6rem'}} key={item.URITag}><Link to={`/recipe/${item.URITag}`}>{item.Title}</Link></li>
                                 </ul>
                             </div>  
                         </Container>  
@@ -63,14 +63,14 @@ class CategoryRoute extends Component {
             </div>)
          }
 
-        return (
-            <div>
-                <CategoryHeader />
-                {headValue}
-                {catArticles}
-                <Route path={`recipe/:uritag`} render={(props) => (<div>  <ArticleContainer isHeader={true} location={this.props.location} /> <FooterSection /> </div>)} /> 
-            </div>
-        );
+        return <div>
+            <CategoryHeader />
+            {headValue}
+            {catArticles}
+            {/* <Route path={`recipe/:uritag`} render={(props) => (<div>  <ArticleContainer isHeader={true} location={this.props.location} /> <FooterSection /> </div>)} />  */}
+            <div className="pb-5" />
+            <FooterSection />
+          </div>;
     }
 }
 

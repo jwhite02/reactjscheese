@@ -10,24 +10,25 @@ import {BrowserRouter as Router} from 'react-router-dom';
 //import SiteHolder from './components/content/SiteHolder';
 import SiteBugerMenu from './components/SiteBugerMenu';
 //import ASideBar from './components/content/ASideBar';
+import ScrollToTop from './components/ScrollToTop';
 
 
 
 
 class App extends Component {
   render() {
-    return (
-      <div>
+    return <div>
         <Router>
-          <SiteBugerMenu />
+          <ScrollToTop>
+            <SiteBugerMenu />
+          </ScrollToTop>
         </Router>
-      </div>
-     /* <div>  <HeaderSection /> <CardSection /> <FooterSection />
+      </div>;
+      /* <div>  <HeaderSection /> <CardSection /> <FooterSection />
         <HeaderSection />
         <CardSection />
         <FooterSection />
       </div> */
-    );
   }
 }
 
