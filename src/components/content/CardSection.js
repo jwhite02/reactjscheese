@@ -235,7 +235,7 @@ class CardSection extends Component {
           let newSubDir = new HtmlToReactParser();
           let subDirs = newSubDir.parse(artsubDir);
           return <Col className="pt-5 col-sm-4">
-           <Fade bottom delay={parseInt("600", 10)}>
+           <Fade bottom delay={parseInt("400", 10)}>
               <Card className="cardDim shadow">
                 <CardImg top width="25%" src={item.image} alt="Card image cap" />
                 <CardBody>
@@ -283,7 +283,7 @@ class CardSection extends Component {
           </Slider>
         </div>
         <div className="divCards">
-            <Bounce right delay={parseInt("1000", 10)}>
+            <Bounce right delay={parseInt("900", 10)}>
             <div className="text-center ml-5" > <h1> Popular Cheesecake Recipes </h1> </div>
             </Bounce>
           <Container className="mr-5">
