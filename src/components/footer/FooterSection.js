@@ -17,7 +17,7 @@ export default class FooterSection extends Component {
             </Col>
             <Col className="text-right" style={{marginTop: '7rem', marginRight: '-8rem'}} >
               <div style={{width: '30rem'}}>
-                <h3>Providing recipes for the worlds greatest dessert!</h3>
+                <h3>Providing Recipes for the World's Greatest Dessert!</h3>
               </div>
             </Col>
           </Row>

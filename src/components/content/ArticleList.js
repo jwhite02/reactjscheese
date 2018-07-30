@@ -6,11 +6,9 @@ import { withRouter } from 'react-router';
 import {Route, Link, NavLink, matchPath} from 'react-router-dom';
 import HtmlToReactParser from 'html-to-react/lib/parser';
 
-import  * as theCats from '../../data/cheesecategories';  // imports all exports
+import  * as theCats from '../../data/cheesecategories';  
 
 import ArticleContainer from './ArticleContainer';
-
-
 class ArticleList extends Component {
     constructor(props) {
       super(props)
@@ -20,15 +18,7 @@ class ArticleList extends Component {
       };
     }
     
-    
-
-    render() {
-        //const match = matchPath('/category/recipe/AppleCheesecakeRecipes/autumn-cheesecake ', { path: '/category/:category/:aCat/:uritag'});
-        //console.log(match);
-        // const mycheesecake = this.props.cheesecake;
-        // console.log(this.props.match);
-        // console.log(this.props.location);
-        // console.log(this.props.cheesecake);
+    render() { 
         const cheesecake = this.props.cheesecake;
 
         const htmlToReactParser = new HtmlToReactParser();
@@ -40,16 +30,6 @@ class ArticleList extends Component {
             }
         });
        
-        //console.log(theCats.cheeseCats);
-        
-        // const mystraw = mycheesecake.filter(item => {
-        //     if (item.category === theCats.LiqueurCheesecakeRecipes ) {
-        //         return item;
-        //     }
-        // });
-
-        //console.log(mystraw);
-
         return (
             <div className="bg-success">
                 <h1 className="text-center"> Juan's Article List </h1>
@@ -62,7 +42,7 @@ class ArticleList extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-    //console.log(state);
+    
     return {
         cheesecake: state.cheesecake
     }
@@ -73,4 +53,3 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 };
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ArticleList));
-//export default ArticleList;

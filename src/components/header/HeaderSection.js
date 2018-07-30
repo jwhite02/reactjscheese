@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import { Jumbotron } from 'reactstrap';
+import FontAwesome from 'react-fontawesome';
+import Zoom from 'react-reveal/Zoom';
+import Slide from 'react-reveal/Slide';
+//import faStyles from 'font-awesome/css/font-awesome.css'
 
 
 export default class HeaderSection extends Component {
@@ -7,11 +11,24 @@ export default class HeaderSection extends Component {
     const bigHeader = this.props.bigHeader;
     if (bigHeader === true) {
           return (<div className="parallax-header parallax">
-              <div className="divHeaderTitle">
-                <h1 className="text-white text-center">
-                  Delectable Scrumptious Cheesecake Recipes
+             <Zoom delay={parseInt("800", 10)}> <div className="divHeaderTitle">
+                <h1 className="text-white text-center" style={{fontSize: '8rem'}} >
+                 I L<FontAwesome className="super-crazy-colors"
+                                        name="heart"
+                                        style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)', fontSize:'5rem' }}
+                                      />ve Cheesecake
                 </h1>
               </div>
+              </Zoom>
+              <Slide left delay={parseInt("2000", 10)}>
+                <div>
+                  <div className=" " style={{width: '50rem', height: '50rem', display: 'flex', flexDirection: 'row',  margin:'auto', marginTop:'5rem', fontFamily:'Exo', textAlign:'center'}} >
+                    <div className="">
+                        <h2 style={{fontSize:'3rem'}}>  <i> Home of Delectable, Scrumptious Cheesecake Recipes </i>  </h2>
+                    </div>
+                  </div>
+                </div>
+                </Slide>
             </div>)
     }
 return (

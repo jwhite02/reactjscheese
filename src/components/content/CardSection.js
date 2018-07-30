@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import Bounce from 'react-reveal/Bounce';
+import Fade from 'react-reveal/Fade';
 import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Container, Row, Col, Button } from 'reactstrap';
 import { Route, Link } from 'react-router-dom';
 import HtmlToReactParser from "html-to-react/lib/parser";
 import ArticleContainer from './ArticleContainer';
 import Slider from "react-animated-slider";
-//import "react-animated-slider/build/horizontal.css";
 
 import * as cheeseCats from '../../data/chessecatsWithSpace';
 
@@ -15,71 +15,25 @@ import berry2 from '../../images/cheesecake-blueberry02.jpg';
 import cho from '../../images/cheesecake-chocolate-swirl.jpg';
 import stru from '../../images/cheesecake-struttle.jpg';
 import straw from '../../images/strawberry-cheesecake.jpg';
-
-import almond  from "../../images/img-01-Almond-Joy-Cheesecake.jpg";
-import almond2 from "../../images/img-02-Almond-Joy-Cheesecake02.jpg";
-import blueberry from "../../images/img-03-blueberry-cheesecake002.jpg";
 import cappuccino from "../../images/img-04-Cappuccino_cheesecake.jpg";
-import pumpkin from "../../images/img-05-low-carb-pumpkin.jpg";
 import nobakechoco from "../../images/img-06-No-Bake_Chocolate-Cheesecake.jpg";
-import nobakechoco2 from "../../images/img-07-no-bake-chocolate-cheesecake.jpg";
-import nobakewhite from "../../images/img-08-no-bake-white-chocolate-raspberry-cheesecake.jpg";
-import pina from "../../images/img-010-pina-colada-cheesecake2.jpg";
-import pumpkin2 from "../../images/img-011-puumpkin-cheesecake.jpg";
-import rasp from "../../images/img-012-raspberry-cheesecake.jpg";
-import rasin from "../../images/img-013-Rum-Raisin-Cheesecake01.jpg";
-import rasin2 from "../../images/img-014-Rum-Raisin-Cheesecake02jpg.jpg";
 import strawberry from "../../images/img-015-strawberry-cheesecake01.jpg";
-import blackberry from "../../images/img-016-swirled-blackberry-cheesecake.jpg";
-import coffee from "../../images/img-017-Coffee_Bean_Cake-cheesecake.jpg";
-import cranberry from "../../images/img-018-Cranberry-RibbonCheesecake.jpg";
-import veganApple from "../../images/img-019-Vegan_Caramel_Apple_Cheesecake.jpg";
-import appleCarmel from "../../images/img-020-Apple-caramel-cheesecake.jpg";
-import carmelApple from "../../images/img-021-Caramel_Apple_Cheesecake_Bars_with_Streusel_Topping.jpg";
-import appleCrumb from "../../images/img-022-delish-apple-cheesecake-crumb.jpg";
 import appleCrumb2 from "../../images/img-023-AppleCreamCrumb.jpg";
-import cherrytopped from "../../images/img-024-cherry-toped-cheescake.jpg";
-import cherrytopped2 from "../../images/img-025-cherrytopped-cheesecake.jpg";
 import whiteChocolate from "../../images/img-026-Fluffy_White_Chocolate_Cheesecake.jpg";
 import bloodOrange from "../../images/img-027-bloodorange-cheesecake.jpg";
-import ribboncheese from "../../images/img-028-Cranberry-RibbonCheesecake.jpg";
-import pina2 from "../../images/img-029-pina-colada-cheesecake.jpg";
-import pin3 from "../../images/img-030-pina-colada-cheesecake2.jpg";
 import lowcarbpumpkin from "../../images/img-031-low-carb-pumpkin.jpg";
-import lowcarbpumpkin2 from "../../images/img-031-low-carb-pumpkin.jpg";
-import nobakechco3 from "../../images/img-032-No-Bake_Chocolate-Cheesecake.jpg";
 import almond4 from "../../images/img-033-Almond-Joy-Cheesecake.jpg";
-import almond3 from "../../images/img-034-Almond-Joy-Cheesecake02.jpg";
-import pumpkin3 from "../../images/img-052-puumpkin-cheesecake.jpg";
 import raspberry from "../../images/img-036-raspberry-cheesecake.jpg";
-import nobakeraspberry from "../../images/img-037-no-bake-white-chocolate-raspberry-cheesecake.jpg";
-import nobakechoco04 from "../../images/img-038-no-bake-chocolate-cheesecake.jpg";
-import rumcheesecake from "../../images/img-039-Rum-Raisin-Cheesecake01.jpg";
-import butterrum from "../../images/img-040-buttered-rum-cheesecake.jpg";
-import rumraisin from "../../images/img-041-Rum-Raisin-Cheesecake02jpg.jpg";
 import blackberry2 from "../../images/img-042-swirled-blackberry-cheesecake.jpg";
 import banana from "../../images/img-043-cheesecake-banana.jpg";
 import butterscotch from "../../images/img-043-cheesecake-butterscotch-drips.jpg";
 import pinacolada from "../../images/img-045-pina-colada-cheesecake02.jpg";
 import blueberrySwirl from "../../images/img-046-Easy-Blueberry-Swirl-Cheesecake.jpg";
-import cherrytopped3 from "../../images/img-046-cherry-topped-cheesecake-d.jpg";
-import cherrytopped4 from "../../images/img-047-cherry-topped-cheesecake-d.jpg";
-import cherrytopped5 from "../../images/img-048-cherry-topped-cheesecake-e.jpg";
 import cherrytopped6 from "../../images/img-049-cherryToppedcheesecake.jpg";
 import ribboncherry from "../../images/img-050-cheery-cheesecake2.jpg";
-import lowcarbpumk from "../../images/img-051-low-carb-pumpkin.jpg";
 import pumpkin4 from "../../images/img-053-pumpkin_swirl_cheesecake3.jpg";
 import rumraisin2 from "../../images/img-054-rum-raisin-brownie-cheesecake02.jpg";
-// import from "../../images";
-// import from "../../images";
 
-
-
-// Sliders to test
-//import Carousel from 'nuka-carousel';
-//import AwesomeSlider from 'react-awesome-slider';
-//import 'react-awesome-slider/dist/styles.css';
-//import Slideshow from 'react-slidez';  // causes dark bottom on ArticleContainer page
 import ImageGallery from 'react-image-gallery';
 
 import { connect } from 'react-redux'; 
@@ -97,15 +51,7 @@ class CardSection extends Component {
   
 
   render() {
-    // const settings = {
-    //   dots: true,
-    //   infinite: true,
-    //   speed: 500,
-    //   slidesToShow: 2,
-    //   slidesToScroll: 2
-    // };
     
-
     const cheesecake = this.props.cheesecake;
 
     const cardRecipes = [
@@ -289,6 +235,7 @@ class CardSection extends Component {
           let newSubDir = new HtmlToReactParser();
           let subDirs = newSubDir.parse(artsubDir);
           return <Col className="pt-5 col-sm-4">
+           <Fade bottom delay={parseInt("600", 10)}>
               <Card className="cardDim shadow">
                 <CardImg top width="25%" src={item.image} alt="Card image cap" />
                 <CardBody>
@@ -304,22 +251,19 @@ class CardSection extends Component {
                       <ArticleContainer isHeader={false} />;
                     }} />
                 </CardBody>
-              </Card>
+               </Card>
+              </Fade>
             </Col>;
         }
       })
       return innerCard;
     });
-      //console.log(theArticleContent);
 
     return <div className="pt-3 parallax-cards">
         <Bounce right delay={parseInt("100", 10)}>
-          <h2 className="text-center">Card Section</h2>
+          <h1 className="text-center mt-5">Delicious Cheesecakes</h1>
         </Bounce>
-        {/* <div className="w-25 mx-auto imageGallery">
-          <ImageGallery showThumbnails={this.state.showThumbnails} showFullscreenButton={this.state.showFullscreenButton && this.state.showGalleryFullscreenButton} autoPlay="true" sizes="50vw" items={images} />
-        </div> */}
-        <div className="myNewSlider shadow-lg">
+        <div className="myNewSlider shadow-lg" style={{marginTop: '3rem', marginBottom:'8rem'}} >
           <Slider autoplay="1200" className="slider-wrapper shadow-lg">
             {content.map((item, index) => (
               <div
@@ -339,7 +283,10 @@ class CardSection extends Component {
           </Slider>
         </div>
         <div className="divCards">
-          <Container>
+            <Bounce right delay={parseInt("1000", 10)}>
+            <div className="text-center ml-5" > <h1> Popular Cheesecake Recipes </h1> </div>
+            </Bounce>
+          <Container className="mr-5">
             <Row>{theArticleContent}</Row>
           </Container>
         </div>

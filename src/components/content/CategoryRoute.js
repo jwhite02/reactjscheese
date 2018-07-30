@@ -3,10 +3,7 @@ import { Switch, Route, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router';
-//import ArticleList from './ArticleList';
-//import ArticleContainer from './ArticleContainer'
 import FooterSection from '../footer/FooterSection';
-//import RecipeHeader from '../header/RecipeHeader';
 import CategoryHeader from '../header/CategoryHeader';
 
 import { Container, Row, Col } from 'reactstrap';
@@ -15,10 +12,6 @@ class CategoryRoute extends Component {
     
     render() {
         const category = this.props.match.params.category;
-        //const category = "CandyCheesecakeRecipes";
-        const match = this.props.match;
-        console.log(category);
-        console.log('i am in the cat route js')
         console.log(this.props.match);
         console.log(this.props.children);
 
@@ -26,7 +19,7 @@ class CategoryRoute extends Component {
         let str2 = category.slice(-17, -7);  // returns 'Cheesecake'
         let str3 = category.slice(0, -17);  // returns 'XXXXXXXXX'
         let strSpace = " ";
-        let str4 = str3.concat(strSpace, str2, strSpace, str);
+        let str4 = str3.concat(strSpace, str2, strSpace, str);  // Category Title of Page
         let myRoute;
 
         const catArticles = this.props.cheesecake.map((item) => {
@@ -37,7 +30,7 @@ class CategoryRoute extends Component {
                         paddingLeft: '10rem'
                     }} >
                         <Container>
-                            <h1>{item.Title}</h1>
+                            <h1 style={{fontSize:'2.8rem'}}>{item.Title}</h1>
                             <p style={{
                                 fontSize: '1.7rem'
                             }}>{item.Content} </p>
@@ -59,7 +52,7 @@ class CategoryRoute extends Component {
          }
         else {
             headValue = (<div className="mt-5">
-            <h1 className="text-center"> {str4} </h1> <ul className="list-unstyled text-center" ><li><Link to='/'>Home</Link></li> </ul>
+            <h1 className="text-center" style={{fontSize:'4rem'}}> {str4} </h1> <ul className="list-unstyled text-center" style={{ fontSize:'2.5rem' }} ><li><Link to='/'>Home</Link></li> </ul>
             </div>)
          }
 
@@ -67,7 +60,6 @@ class CategoryRoute extends Component {
             <CategoryHeader />
             {headValue}
             {catArticles}
-            {/* <Route path={`recipe/:uritag`} render={(props) => (<div>  <ArticleContainer isHeader={true} location={this.props.location} /> <FooterSection /> </div>)} />  */}
             <div className="pb-5" />
             <FooterSection />
           </div>;

@@ -13,7 +13,6 @@ import FooterSection from '../footer/FooterSection';
 import ArticleList from './ArticleList';
 import CategoryRoute from './CategoryRoute';
 import ArticleContainer from './ArticleContainer';
-//import { cheeseCats } from '../../data/cheesecategories';
 
 
 
@@ -51,9 +50,7 @@ class SiteHolder extends Component {
     
 
     render() {
-        //let myItem = this.props.match.params.item;
         console.log(theCats.cheeseCats);
-       // console.log(this.props);
 
         const newLinks = theCats.cheeseCats.map((item) => {
             let str = item.slice(-7);  // returns 'Recipes'
@@ -74,7 +71,6 @@ class SiteHolder extends Component {
                         <Menu isOpen={false} pageWrapId={"page-wrap"} outerContainerId={"outer-container"} >
                                     <ul className="list-unstyled menuList" >
                                         <li><Link to='/'>Home</Link></li>
-                                        {/* <li><Link to='/article'>Article</Link></li> */}
                                         {newLinks}
                                     </ul>
                         </Menu> 
@@ -89,9 +85,6 @@ class SiteHolder extends Component {
                                     ))}
                                 <Route  path="/category/:category" render={(...props) => {return <CategoryRoute />}}/>
                                 <Route path="/recipe/:uritag" render={(props) => (<div>  <ArticleContainer isHeader={true} location={this.props.location} /> <FooterSection /> </div>)} /> 
-                                
-                                {/* <Route path="/recipe/:uritag" render={(...props) => {return <CategoryRoute />}}/> */}
-                                {/* <Route path={`/category/:category/:uritag`} render={(props) => (<div><ArticleList location={this.props.location} /></div>)} />  */}
                             </div>                             
                     </div>
                 </div>
@@ -100,7 +93,6 @@ class SiteHolder extends Component {
 }
 
 const mapStateToProps = (state) => {
-  //console.log(state);
   return ({
     cheesecake: state.cheesecake
   });

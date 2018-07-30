@@ -4,19 +4,17 @@ import { withRouter } from 'react-router';
 import HtmlToReactParser from 'html-to-react/lib/parser';
 import { Container, Row, Col } from 'reactstrap';
 import RecipeHeader from '../header/RecipeHeader';
+import { Link } from 'react-router-dom';
 
-import * as theCats from '../../data/cheesecategories';  // imports all exports
-
-
+import * as theCats from '../../data/cheesecategories';  
 class ArticleContainer extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            //theArticleContent
+            
         }
     
     }
-
     
     render() {
         const mycheesecake = this.props.cheesecake;
@@ -24,17 +22,12 @@ class ArticleContainer extends Component {
         const uritag = this.props.match.params.uritag;
         console.log(this.props.match);
         console.log(this.props.location);
-       // console.log(uritag);
-
-        //const theArticleContent = this.state.theArticleContent;
         
         const theArticleContent = mycheesecake.filter((item) => {
             if (item.URITag === uritag) {
                 return item
             }
         })
-
-        //console.log(theArticleContent);
 
         let directions = theArticleContent[0].Directions;
         const ingredients = theArticleContent[0].Ingredients;
@@ -43,19 +36,14 @@ class ArticleContainer extends Component {
         const reactDirections = htmlToReactParser.parse(directions);
         const theingred = htmlToReactParser.parse(ingredients);
         
-
-        // const mystraw = mycheesecake.filter(item => {
-        //     if (item.category === theCats.LiqueurCheesecakeRecipes) {
-        //         return item;
-        //     }
-        // });
         return <div>
             <RecipeHeader isRcHeader={this.props.isHeader   } />
             <div className="pt-5 divBgRepeatArt">
-                <div className="mb-5">
+                <div className="" style={{ marginBottom: '5rem' }}>
                     <h1 className="text-center" style={{ fontSize:'3.5rem' }} >
                         {theArticleContent[0].Title}
                     </h1>
+                    <ul className="list-unstyled text-center" style={{ fontSize:'2.5rem' }} ><li><Link to='/'>Home</Link></li> </ul>
                 </div>
                 <Container style={{ marginBottom: '3rem' }} >
                     <Row>
